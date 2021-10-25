@@ -518,3 +518,55 @@ function sentensify(str) {
   // Only change code above this line
 }
 sentensify("May-the-force-be-with-you");
+
+//lesson 21
+
+/*Apply Functional Programming to Convert Strings to URL Slugs
+The last several challenges covered a number of useful array and string methods that follow functional programming principles. We've also learned about reduce, which is a powerful method used to reduce problems to simpler forms. From computing averages to sorting, any array operation can be achieved by applying it. Recall that map and filter are special cases of reduce.
+
+Let's combine what we've learned to solve a practical problem.
+
+Many content management sites (CMS) have the titles of a post added to part of the URL for simple bookmarking purposes. For example, if you write a Medium post titled Stop Using Reduce, it's likely the URL would have some form of the title string in it (.../stop-using-reduce). You may have already noticed this on the freeCodeCamp site.
+
+Fill in the urlSlug function so it converts a string title and returns the hyphenated version for the URL. You can use any of the methods covered in this section, and don't use replace. Here are the requirements:
+
+The input is a string with spaces and title-cased words
+
+The output is a string with the spaces between words replaced by a hyphen (-)
+
+The output should be all lower-cased letters
+
+The output should not have any spaces*/
+
+// Only change code below this line
+function urlSlug(title) {
+  return title
+    .split(" ")
+    .filter((substr) => substr !== "")
+    .join("-")
+    .toLowerCase();
+}
+// Only change code above this line
+
+//lesson 22
+
+/*Use the every Method to Check that Every Element in an Array Meets a Criteria
+The every method works with arrays to check if every element passes a particular test. It returns a Boolean value - true if all values meet the criteria, false if not.
+
+For example, the following code would check if every element in the numbers array is less than 10:
+
+var numbers = [1, 5, 8, 0, 10, 11];
+numbers.every(function(currentValue) {
+  return currentValue < 10;
+});
+The every method would return false here.
+
+Use the every method inside the checkPositive function to check if every element in arr is positive. The function should return a Boolean value.*/
+
+function checkPositive(arr) {
+  // Only change code below this line
+  return arr.every((el) => el > 0);
+
+  // Only change code above this line
+}
+checkPositive([1, 2, 3, -4, 5]);
