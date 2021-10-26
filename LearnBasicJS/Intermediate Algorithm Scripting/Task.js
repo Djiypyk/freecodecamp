@@ -26,28 +26,72 @@ Compare two arrays and return a new array with any items only found in one of th
 
 Note: You can return the array with its elements in any order.*/
 
-
 function diffArray(arr1, arr2) {
   return arr1
-      .concat(arr2)
-      .filter(item => !arr1.includes(item) || !arr2.includes(item));
-  }
-  
-  diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+    .concat(arr2)
+    .filter((item) => !arr1.includes(item) || !arr2.includes(item));
+}
 
-  //task 03
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
 
+//task 03
 
-  /*Seek and Destroy
+/*Seek and Destroy
 You will be provided with an initial array (the first argument in the destroyer function), followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.
 
 Note: You have to use the arguments object.*/
 
-
-function destroyer(arr,...values) {
-  return arr.filter(elem => !values.includes(elem));
+function destroyer(arr, ...values) {
+  return arr.filter((elem) => !values.includes(elem));
 }
 
 destroyer([1, 2, 3, 1, 2, 3], 2, 3);
 
 //task 04
+
+/*Wherefore art thou
+Make a function that looks through an array of objects (first argument) and returns an array of all objects that have matching name and value pairs (second argument). Each name and value pair of the source object has to be present in the object from the collection if it is to be included in the returned array.
+
+For example, if the first argument is [{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], and the second argument is { last: "Capulet" }, then you must return the third object from the array (the first argument), because it contains the name and its value, that was passed on as the second argument.*/
+
+function whatIsInAName(collection, source) {
+  var arr = [];
+  // Only change code below this line
+  var srcKeys = Object.keys(source);
+  for (let i = 0; i < collection.length; i++) {
+    let flag = true;
+    for (let j = 0; j < srcKeys.length; j++) {
+      if (!(collection[i][srcKeys[j]] === source[srcKeys[j]])) {
+        flag = false;
+      }
+    }
+    if (flag) {
+      arr.push(collection[i]);
+    }
+  }
+  // Only change code above this line
+  return arr;
+}
+
+whatIsInAName(
+  [
+    { first: "Romeo", last: "Montague" },
+    { first: "Mercutio", last: null },
+    { first: "Tybalt", last: "Capulet" },
+  ],
+  { last: "Capulet" }
+);
+
+//task 05
+
+/*Spinal Tap Case
+Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.*/
+
+function spinalCase(str) {
+  return str
+    .split(/\s|_|(?=[A-Z])/)
+    .join("-")
+    .toLowerCase();
+}
+
+spinalCase("This Is Spinal Tap");
