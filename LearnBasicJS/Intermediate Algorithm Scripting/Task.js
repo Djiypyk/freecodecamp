@@ -407,3 +407,17 @@ In JavaScript, truthy values are values that translate to true when evaluated in
 
 Remember, you can access object properties through either dot notation or [] notation.
 */
+
+function truthCheck(collection, pre) {
+  return collection.every((object) => object[pre]);
+}
+
+truthCheck(
+  [
+    { user: "Tinky-Winky", sex: "male" },
+    { user: "Dipsy", sex: "male" },
+    { user: "Laa-Laa", sex: "female" },
+    { user: "Po", sex: "female" },
+  ],
+  "sex"
+);
